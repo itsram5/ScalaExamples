@@ -1,4 +1,5 @@
 import org.apache.spark.{SparkContext, _}
+
 object WordCount {
   def main(args: Array[String]) {
     val conf = new SparkConf()
@@ -10,7 +11,7 @@ object WordCount {
     val count = input.flatMap(line ⇒ line.split(" "))
       .map(word ⇒ (word, 1))
       .reduceByKey(_ + _)
-    count.saveAsTextFile("src/main/resources/outfile1")
+    count.saveAsTextFile("src/main/resources/output/humpty")
     println("OK")
   }
 }
